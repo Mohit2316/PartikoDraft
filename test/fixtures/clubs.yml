@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  location: MyString
+  picture: MyString
+  description: MyString
+  provider: MyString
+  expires_on: 2015-01-23 06:30:10
+
+two:
+  name: MyString
+  location: MyString
+  picture: MyString
+  description: MyString
+  provider: MyString
+  expires_on: 2015-01-23 06:30:10
