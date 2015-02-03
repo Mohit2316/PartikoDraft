@@ -1,5 +1,5 @@
 class CreateClubs < ActiveRecord::Migration
-  drop_table :clubs
+  
   def change
     create_table :clubs do |t|
       t.string :name

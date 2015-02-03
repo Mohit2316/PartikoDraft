@@ -1,5 +1,5 @@
 class CreateDeals < ActiveRecord::Migration
-  drop_table :deals
+  
   def change
     create_table :deals do |t|
       t.string :name

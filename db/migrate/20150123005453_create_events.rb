@@ -1,5 +1,5 @@
 class CreateEvents < ActiveRecord::Migration
-  drop_table :events
+  
   def change
     create_table :events do |t|
       t.string :name
