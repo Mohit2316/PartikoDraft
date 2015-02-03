@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150123010254) do
     t.string   "description"
     t.string   "timings"
     t.string   "club_id"
+    t.string   "facebookUrl "
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

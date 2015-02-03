@@ -24,7 +24,18 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    puts "event parameters are"
+    id = event_params['club_id'].split('/').last
+    @oauth = Koala::Facebook::OAuth.new('345625378972716','8d652b113a8cf8385b975a5ae77debf6', "http://www.partiko.com/")
+    @graph = Koala::Facebook::API.new(@oauth.get_app_access_token)
+    eventInfo = @graph.get_object(id, {}, api_version: "v2.0")
+    pic = @graph.get_connections(id,"?fields=cover")
+    puts pic
+    location = eventInfo['venue']['city']
+    timings = eventInfo['start_time']
+    
+    event = {:name => eventInfo['name'],:location => location, :picture => pic['cover']['source'] ,:description => eventInfo['description'], :timings =>timings, :club_id => eventInfo['owner']['name']}
+    @event = Event.new(event)
 
     respond_to do |format|
       if @event.save
@@ -69,6 +80,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :location, :picture, :description, :timings, :club_id)
+      params.require(:event).permit(:name, :location, :picture, :description, :timings, :club_id, :facebookUrl)
     end
 end

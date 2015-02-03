@@ -29,7 +29,10 @@ class ClubsController < ApplicationController
   # POST /clubs.json
   def create
     @club = Club.new(club_params)
-    
+    @graph = Koala::Facebook::API.new("CAACEdEose0cBAB6rKzmqZABPL3RcGYbApbGHMQ7Ogq5PJv9vyPyhqEY5CfvVR65BDwtEwqlayUTdqGNJpjyP9v833BGG3kR2dvj6wbc4f1vWTlOALtKIfjBS5xQzLhxJ46ulqZC8YCVq0RwXUNZCZBnIwBJqqEOP1mnhJZAt8t0PXobbhn9Ubw70daZABzZBnDloVdyw8u2zz5G7P8Jj6uA")
+    Koala.config.api_version = "v2.0"
+    # or on a per-request basis
+    puts @graph.get_object("846905345370709", {}, api_version: "v2.2")
     
     
 

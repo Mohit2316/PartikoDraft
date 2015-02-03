@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :description
       t.string :timings
       t.string :club_id
+      t.string :facebookUrl 
 
       t.timestamps null: false
     end

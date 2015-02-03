@@ -39,3 +39,15 @@
     <%= f.submit %>
   </div>
 <% end %>
+<br/>
+<h1>Import from Facebook</h1>
+<br/>
+<%= form_for(@event) do |f| %>
+<div class="field">
+    <%= f.label :club_id %><br>
+    <%= f.text_field :club_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
